@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   get 'profile', to: 'users#show'
   put 'update_profile', to: 'users#update'
+
+  resources :locations, except: [:destroy, :update]
 end

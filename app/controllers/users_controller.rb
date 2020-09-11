@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
   before_action :set_user, except: [:create]
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.except(:address))
     address = Address.new(user_params[:address])
     @user.address = address
-    if @user.address = Address.upsert(address_params) && @user.save
+    if @user.save
       render :show, status: :created
     else
         render json: {errors: @user.errors }, status: :unprocessable_entity
