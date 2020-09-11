@@ -5,4 +5,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
 
   validates :email, uniqueness: true
+  validates :name, :email, :password_digest, presence: true
 end

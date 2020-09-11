@@ -22,7 +22,6 @@ class UsersController < ApplicationController
     if @user.update(user_params.except(:address))
       render :show, status: :ok
     else
-      byebug
       render json: {errors: @user.errors }, status: :unprocessable_entity
     end
   end
