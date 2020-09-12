@@ -7,3 +7,6 @@ end
 json.user do
   json.partial! 'users/user', user: location.user if location.user
 end
+json.general_evaluation do
+  json.partial! 'general_evaluations/general_evaluation', general_evaluation: location.general_evaluation if location.general_evaluation
+end

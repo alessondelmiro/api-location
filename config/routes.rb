@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   put 'update_profile', to: 'users#update'
 
   resources :locations, except: [:destroy, :update]
+  resources :evaluations, only: [:create, :index]
 end

@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
     if @location.save
       render :show, status: :created
     else
-        render json: {errors: @location.errors }, status: :unprocessable_entity
+      render json: {errors: @location.errors }, status: :unprocessable_entity
     end
   end
 
@@ -19,9 +19,6 @@ class LocationsController < ApplicationController
 
   def show
   end
-
-  # def evaluate
-  # end
 
   private
 
@@ -34,7 +31,7 @@ class LocationsController < ApplicationController
     @locations = @locations.order_as_map(params[:map], current_user.latitude, current_user.longitude)
     @locations = @locations.offset(params[:offset]) if params[:offset].present?
     @locations = @locations.limit(params[:limit] || 10)
-end
+  end
 
   def location_params
     params.require(:location).permit(:name, :description, address: [:addressable_id, :addressable_type, :street, :suburb, :city, :state, :country, :latitude, :longitude])

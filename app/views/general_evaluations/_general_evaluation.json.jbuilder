@@ -1,0 +1,8 @@
+json.id general_evaluation.id
+json.avg_rating general_evaluation.avg_rating.round(1)
+json.one_star general_evaluation.one_star
+json.two_stars general_evaluation.two_stars
+json.three_stars general_evaluation.three_stars
+json.four_stars general_evaluation.four_stars
+json.five_stars general_evaluation.five_stars
+json.count_evaluations general_evaluation.count_evaluations

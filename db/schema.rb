@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_185141) do
+ActiveRecord::Schema.define(version: 2020_09_12_010143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,31 @@ ActiveRecord::Schema.define(version: 2020_09_11_185141) do
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "location_id", null: false
+    t.integer "rating"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_evaluations_on_location_id"
+    t.index ["user_id", "location_id"], name: "index_evaluations_on_user_id_and_location_id", unique: true
+    t.index ["user_id"], name: "index_evaluations_on_user_id"
+  end
+
+  create_table "general_evaluations", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.float "avg_rating"
+    t.integer "one_star", default: 0
+    t.integer "two_stars", default: 0
+    t.integer "three_stars", default: 0
+    t.integer "four_stars", default: 0
+    t.integer "five_stars", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_general_evaluations_on_location_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -47,5 +72,8 @@ ActiveRecord::Schema.define(version: 2020_09_11_185141) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "evaluations", "locations"
+  add_foreign_key "evaluations", "users"
+  add_foreign_key "general_evaluations", "locations"
   add_foreign_key "locations", "users"
 end
