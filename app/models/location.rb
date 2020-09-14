@@ -1,7 +1,7 @@
 class Location < ApplicationRecord
   belongs_to :user
   validates :name, uniqueness: true
-  validates :name, presence: true
+  validates :name, :address, presence: true
   has_one :address, as: :addressable,	dependent: :destroy
   has_one :general_evaluation, dependent: :destroy
   has_many :evaluations, dependent: :destroy

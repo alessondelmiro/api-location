@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :addressable, polymorphic: true
+  belongs_to :addressable, polymorphic: true, optional: true
   before_save :titleize_attributes
   geocoded_by :full_address
   reverse_geocoded_by :latitude, :longitude do |obj, results|
