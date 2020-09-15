@@ -26,9 +26,9 @@ class Evaluation < ApplicationRecord
       end
 
       unless self.save && general_evaluation.save
-        return false
+        false
       end
-      return true
+      true
     end
   end
 end

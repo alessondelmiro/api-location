@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
   def apply_scopes
     @locations = @locations.search(params[:q]) if params[:q].present?
     @locations = @locations.order_as_map(params[:map], current_user.latitude, current_user.longitude)
-    @locations = @locations.offset(params[:offset]) if params[:offset].present?
+    @locations = @locations.offset((params[:page].to_i - 1) * 10) if params[:page].present?
     @locations = @locations.limit(params[:limit] || 10)
   end
 

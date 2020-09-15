@@ -20,7 +20,7 @@ class EvaluationsController < ApplicationController
   private
 
   def apply_scopes
-    @evaluations = @evaluations.offset(params[:offset]) if params[:offset].present?
+    @evaluations = @evaluations.offset((params[:page].to_i - 1) * 10) if params[:page].present?
     @evaluations = @evaluations.limit(params[:limit] || 10)
   end
 
