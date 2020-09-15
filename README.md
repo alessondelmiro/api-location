@@ -2,8 +2,8 @@
 
 ### Prerequisites
 
-1. ruby ruby-2.6.3
-2. Postgres: 12.x
+1. ruby-2.6.3
+2. postgres 12.x
 
 ### Getting started
 
