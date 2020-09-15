@@ -56,25 +56,3 @@ bundle exec spring rspec spec/requests/api/v1/your_request.rb
 [Documentation](https://documenter.getpostman.com/view/1117525/TVK77fwH)
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/caf4476b81d7bb49190a#?env%5Bprod%5D=W3sia2V5IjoiaG9zdCIsInZhbHVlIjoiaHR0cHM6Ly9hcGktbG9jYXRpb24uaGVyb2t1YXBwLmNvbSIsImVuYWJsZWQiOnRydWV9XQ==)
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
