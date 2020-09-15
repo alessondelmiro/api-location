@@ -25,8 +25,10 @@ class Evaluation < ApplicationRecord
         general_evaluation.five_stars += 1
       end
 
-      self.save!
-      general_evaluation.save!
+      unless self.save && general_evaluation.save
+        return false
+      end
+      return true
     end
   end
 end

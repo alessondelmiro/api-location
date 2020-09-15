@@ -23,7 +23,9 @@ class LocationsController < ApplicationController
   private
 
   def set_location
-    @location = Location.find(params[:id])
+    unless @location = Location.find_by(id: params[:id])
+      head :not_found
+    end
   end
 
   def apply_scopes

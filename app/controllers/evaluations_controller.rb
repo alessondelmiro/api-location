@@ -2,7 +2,7 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new(evaluation_params.merge(user_id: current_user.id))
     if @evaluation.save_update_general!
-      head :ok
+      head :created
     else
       render json: {errors: @evaluation.errors }, status: :unprocessable_entity
     end
